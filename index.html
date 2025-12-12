@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammad Durrani | Portfolio</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #0a0f1a;
+            color: #e5e5e5;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 18px 50px;
+            backdrop-filter: blur(12px);
+            background: rgba(15, 20, 30, 0.65);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #cfd4da;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00aaff;
+        }
+#quotes {
+    text-align: center;
+    padding: 60px 50px;
+    background: rgba(0, 170, 255, 0.05);
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.quote-container {
+    position: relative;
+    height: 80px;
+}
+
+.quote {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    font-style: italic;
+    color: #cfd4da;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+        /* HERO */
+        #hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url("https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80") no-repeat center/cover;
+            position: relative;
+        }
+
+        #hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0f1a);
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.2s ease;
+        }
+
+        #hero h1 {
+            font-size: 60px;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        #hero h1 span {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        #hero p {
+            max-width: 600px;
+            margin: 15px auto;
+            font-size: 18px;
+            opacity: 0.85;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.25s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: scale(1.07);
+            filter: brightness(1.2);
+        }
+
+        section {
+            padding: 80px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #00aaff;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .about-wrapper {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-wrapper img {
+            width: 280px;
+            border-radius: 12px;
+        }
+
+        .skills-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            background: rgba(0, 170, 255, 0.15);
+        }
+
+        .carousel-container {
+            width: 92%;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card {
+            width: 360px;
+            padding: 25px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: rotateY(12deg) rotateX(6deg) scale(1.07);
+            box-shadow: 0 25px 50px rgba(0, 170, 255, 0.25);
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #00aaff;
+            color: #000;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .project-btn:hover {
+            filter: brightness(1.15);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #00aaff;
+            color: #000;
+            padding: 14px 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 10;
+            transition: 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .left-btn { left: -10px; }
+        .right-btn { right: -10px; }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            margin-top: 60px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Hammad<span>Durrani</span></h1>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <div class="content">
+        <h2 style="font-size: 22px; opacity: .85;">Hello, I'm</h2>
+        <h1>Hammad <span>Durrani</span></h1>
+        <p>A passionate IT enthusiast, problem-solver, and future software engineer.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-wrapper">
+        <img src="https://via.placeholder.com/300" alt="Profile" />
+        <div>
+            <p>
+                I'm <strong>Hammad Durrani</strong>, an IT enthusiast with a strong interest in software
+                development, building digital experiences, and learning new technologies every day.
+            </p><br>
+            <p>
+                I enjoy creating clean, modern, and responsive projects. My goal is to sharpen my skills and become a professional developer.
+            </p>
+            <a href="#" class="btn" style="margin-top: 20px;">Download CV</a>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">React</div>
+        <div class="skill-card">Git / GitHub</div>
+        <div class="skill-card">UI/UX Basics</div>
+    </div>
+</section>
+
+<section id="quotes">
+    <h2 class="section-title">Favorite Quotes</h2>
+    <div class="quote-container">
+        <p class="quote">"The only way to do great work is to love what you do." – Steve Jobs</p>
+        <p class="quote">"Strive not to be a success, but rather to be of value." – Albert Einstein</p>
+        <p class="quote">"Code is like humor. When you have to explain it, it’s bad." – Cory House</p>
+        <p class="quote">"Simplicity is the soul of efficiency." – Austin Freeman</p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn left-btn">&#10094;</button>
+        <button class="carousel-btn right-btn">&#10095;</button>
+
+        <div class="carousel-track">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x250" />
+                <h3>Portfolio Website</h3>
+                <p>A modern personal portfolio showcasing my skills.</p>
+                <a href="#" class="project-btn">View</a>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x250" />
+                <h3>Task Manager App</h3>
+                <p>A productivity tool that stores tasks using local storage.</p>
+                <a href="#" class="project-btn">View</a>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x250" />
+                <h3>Weather App</h3>
+                <p>Fetches real-time weather using the OpenWeather API.</p>
+                <a href="#" class="project-btn">View</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Hammad Durrani. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const track = document.querySelector(".carousel-track");
+    const leftBtn = document.querySelector(".left-btn");
+    const rightBtn = document.querySelector(".right-btn");
+    let index = 0;
+
+    function slideCarousel() {
+        const cardWidth = document.querySelector(".project-card").offsetWidth + 30;
+        if (index < 0) index = 0;
+        if (index > track.children.length - 1) index = track.children.length - 1;
+        track.style.transform = `translateX(${-index * cardWidth}px)`;
+    }
+
+    rightBtn.addEventListener("click", () => { index++; slideCarousel(); });
+    leftBtn.addEventListener("click", () => { index--; slideCarousel(); });
+
+const quotes = document.querySelectorAll(".quote");
+    let currentQuote = 0;
+
+    function showNextQuote() {
+        quotes.forEach((q, i) => {
+            q.style.opacity = (i === currentQuote) ? 1 : 0;
+        });
+        currentQuote = (currentQuote + 1) % quotes.length;
+    }
+
+    // Show the first quote immediately
+    showNextQuote();
+    // Change quote every 4 seconds
+    setInterval(showNextQuote, 4000);
+
+</script>
+
+</body>
+</html>
