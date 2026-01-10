@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Hire Guide</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e9f5ec 0%, #d3e9f2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 20px 0;
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  padding: 40px 35px 50px 35px;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.card img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 90px;
+  border-radius: 0;
+}
+
+
+h1 {
+  text-align: center;
+  color: #08c922;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background-color: #fdfdfd;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #08c922;
+  box-shadow: 0 0 6px rgba(8,201,34,0.3);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
+  color: white;
+  background: linear-gradient(135deg, #08c922, #06b61b);
+  box-shadow: 0 3px 6px rgba(8, 201, 34, 0.25);
+}
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #06b61b, #08c922);
+  box-shadow: 0 5px 10px rgba(8, 201, 34, 0.3);
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #0d6fb5, #0a5fa0);
+  box-shadow: 0 3px 6px rgba(13, 111, 181, 0.25);
+}
+.home-btn:hover {
+  background: linear-gradient(135deg, #0a5fa0, #0d6fb5);
+}
+
+#refreshBtn {
+  background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
+  box-shadow: 0 3px 6px rgba(255, 59, 59, 0.3);
+}
+#refreshBtn:hover {
+  background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+}
+
+.output-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.result, .role-access {
+  flex: 1 1 48%;
+  padding: 14px 16px;
+  background: #f0f9f1;
+  border: 1px solid #08c922;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  text-align: left;
+  white-space: pre-line;
+  display: none;
+  box-shadow: inset 0 0 8px rgba(8,201,34,0.05);
+}
+.role-access {
+  background: #fff8e6;
+  border-color: #ffc107;
+  box-shadow: inset 0 0 8px rgba(255,193,7,0.1);
+}
+
+.checklist {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.checklist h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #08c922;
+  font-size: 1.2rem;
+}
+.checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.checklist li:last-child {
+  border-bottom: none;
+}
+.checklist input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #08c922;
+}
+
+#copyCredentialsBtn {
+  background: linear-gradient(135deg, #ffd43b, #ffc107);
+  color: #333;
+  font-weight: 600;
+}
+#copyCredentialsBtn:hover {
+  background: linear-gradient(135deg, #ffc107, #ffd43b);
+}
+
+@media (max-width: 960px) {
+  .output-container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    padding: 25px;
+  }
+  button {
+    padding: 12px;
+    font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="MileOne.jpg" alt="Company Logo">
+    <button type="button" class="home-btn" onclick="goHome()">Home</button>
+    <h1>New Hire Guide</h1>
+    <form onsubmit="handleSubmit(event)">
+      <label class="form-label" for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required>
+
+      <label class="form-label" for="ssn">Social Security Number</label>
+      <input type="text" id="ssn" name="ssn" placeholder="XXX-XX-1234" required>
+
+      <label class="form-label" for="dmsId">DMS ID</label>
+      <input type="text" id="dmsId" name="dmsId" placeholder="Enter DMS ID" required>
+
+<label class="form-label" for="store">Store</label>
+      <select id="store" name="store" required>
+        <option value="" disabled selected>Select store</option>
+        <option value="TCC/Accounting Heritage-01/Acct01">TCC/Accounting Heritage-01/Acct01</option>
+        <option value="Silver Spring/Accounting Herb Gordon-02/Acct01">Silver Spring/Accounting Herb Gordon-02/Acct01</option>
+        <option value="Annapolis/Mercedes-02/05">Annapolis/Mercedes-02/05</option>
+        <option value="Bel Air/Honda-01/05">Bel Air/Honda-01/05</option>
+        <option value="Bel Air/Mazda-01/06">Bel Air/Mazda-01/06</option>
+        <option value="Catonsville/Subaru-01/11">Catonsville/Subaru-01/11</option>
+        <option value="Catonsville/Volkswagen-01/08">Catonsville/Volkswagen-01/08</option>
+        <option value="Catonsville/Mazda-01/02">Catonsville/Mazda-01/02</option>
+        <option value="Catonsville/Toyota Collison Center-01/10">Catonsville/Toyota Collison Center-01/10</option>
+        <option value="Catonsville/Toyota-01/09">Catonsville/Toyota-01/09</option>
+        <option value="Catonsville/BMW-02/09">Catonsville/BMW-02/09</option>
+        <option value="Fort Washington/BMW-02/11">Fort Washington/BMW-02/11</option>
+        <option value="Fort Washington/Mercedes Benz-02/13">Fort Washington/Mercedes Benz-02/13</option>
+        <option value="Harrisburg/ChryslerDodgeJeep-01/22">Harrisburg/ChryslerDodgeJeep-01/22</option>
+        <option value="Harrisburg/Toyota-01/23">Harrisburg/Toyota-01/23</option>
+        <option value="Parkville/ChryslerDodgeJeep-01/15">Parkville/ChryslerDodgeJeep-01/15</option>
+        <option value="Parkville/Honda-01/14">Parkville/Honda-01/14</option>
+        <option value="Parkville/Volkswagen-01/15">Parkville/Volkswagen-01/15</option>
+        <option value="Owings Mills/HyundaiGenesis-01/18">Owings Mills/HyundaiGenesis-01/18</option>
+        <option value="Owings Mills/ChryslerDodgeJeep-01/03">Owings Mills/ChryslerDodgeJeep-01/03</option>
+        <option value="Owings Mills/Imports-01/04">Owings Mills/Imports-01/04</option>
+        <option value="Owings Mills/Toyota-01/07">Owings Mills/Toyota-01/07</option>
+        <option value="Owings Mills/Mercedes-02/10">Owings Mills/Mercedes-02/10</option>
+        <option value="Silver Spring/Audi-2/06">Silver Spring/Audi-2/06</option>
+        <option value="Silver Spring/BMW-02/08">Silver Spring/BMW-02/08</option>
+        <option value="Silver Spring/Ineos-02/14">Silver Spring/Ineos-02/14</option>
+        <option value="Silver Spring/Mercedes Benz-02/04">Silver Spring/Mercedes Benz-02/04</option>
+        <option value="Silver Spring/MileOne Body Shop Express-02/07">Silver Spring/MileOne Body Shop Express-02/07</option>
+        <option value="Silver Spring/Porsche-2/12">Silver Spring/Porsche-2/12</option>
+        <option value="Silver Spring/Subaru-02/02">Silver Spring/Subaru-02/02</option>
+        <option value="Silver Spring/Volvo-02/01">Silver Spring/Volvo-02/01</option>
+        <option value="Towson/Hyundai-01/17">Towson/Hyundai-01/17</option>
+        <option value="Towson/Mazda-01/12">Towson/Mazda-01/12</option>
+        <option value="Westminster/Honda-01/16">Westminster/Honda-01/16</option>
+        <option value="Wilmington/Lexus-01/20">Wilmington/Lexus-01/20</option>
+      </select>
+
+      <label class="form-label" for="role">Role</label>
+      <select id="role" name="role" required onchange="showChecklist()">
+        <option value="" disabled selected>Select role</option>
+        <option>Asst Service/Lane Manager</option>
+        <option>BDC/Special Finance</option>
+        <option>Body Shop Estimator</option>
+        <option>Body Shop Manager</option>
+        <option>Body Shop Technician</option>
+        <option>Deal Admin</option>
+        <option>Deal Processor</option>
+        <option>Detail DX Driver</option>
+        <option>F&I Manager</option>
+        <option>General Manager</option>
+        <option>General Sales Manager</option>
+        <option>HR</option>
+        <option>Internet Sales Manager</option>
+        <option>Loaner Agent</option>
+        <option>Lot Attendant</option>
+        <option>Marketing</option>
+        <option>MIS Hardware Technician</option>
+        <option>MIS Help Desk Call Center</option>
+        <option>Office Manager</option>
+        <option>Parts Advisor</option>
+        <option>Parts Inventory/STK Clerk</option>
+        <option>Parts Manager</option>
+        <option>Payroll Admin</option>
+        <option>Receptionist</option>
+        <option>Sales Associate</option>
+        <option>Sales Inventory</option>
+        <option>Sales Manager</option>
+        <option>Service Advisor</option>
+        <option>Service Dispatcher</option>
+        <option>Service Manager</option>
+	<option>Technician</option>
+
+      </select>
+
+      <button type="submit">Output Credentials</button>
+    </form>
+
+    <!-- AP Clerk Checklist -->
+<div id="apClerkChecklist" style="display:none; margin-top:20px;">
+  <h3>AP Clerk Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- AR Clerk Checklist -->
+<div id="arClerkChecklist" style="display:none; margin-top:20px;">
+  <h3>AR Clerk Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Asst Parts Manager Checklist -->
+<div id="asstPartsManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Asst Parts Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Asst Service/Lane Manager Checklist -->
+<div id="asstServiceLaneManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Asst Service/Lane Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- BDC/Special Finance Checklist -->
+<div id="bdcSpecialFinanceChecklist" style="display:none; margin-top:20px;">
+  <h3>BDC/Special Finance Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Body Shop Estimator Checklist -->
+<div id="bodyShopEstimatorChecklist" style="display:none; margin-top:20px;">
+  <h3>Body Shop Estimator Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Body Shop Manager Checklist -->
+<div id="bodyShopManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Body Shop Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Body Shop Technician Checklist -->
+<div id="bodyShopTechnicianChecklist" style="display:none; margin-top:20px;">
+  <h3>Body Shop Technician Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Cashier/Service Clerical/File Clerk Checklist -->
+<div id="cashierClerkChecklist" style="display:none; margin-top:20px;">
+  <h3>Cashier/Service Clerical/File Clerk Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Controller Checklist -->
+<div id="controllerChecklist" style="display:none; margin-top:20px;">
+  <h3>Controller Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Customer Relations Manager Checklist -->
+<div id="customerRelationsChecklist" style="display:none; margin-top:20px;">
+  <h3>Customer Relations Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Deal Admin Checklist -->
+<div id="dealAdminChecklist" style="display:none; margin-top:20px;">
+  <h3>Deal Admin Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Deal Processor Checklist -->
+<div id="dealProcessorChecklist" style="display:none; margin-top:20px;">
+  <h3>Deal Processor Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Detail Checklist -->
+<div id="detailChecklist" style="display:none; margin-top:20px;">
+  <h3>Detail Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- DX Driver Checklist -->
+<div id="dxDriverChecklist" style="display:none; margin-top:20px;">
+  <h3>DX Driver Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- F&I Manager Checklist -->
+<div id="fiManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>F&I Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- GM Checklist -->
+<div id="gmChecklist" style="display:none; margin-top:20px;">
+  <h3>GM Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- GSM Checklist -->
+<div id="gsmChecklist" style="display:none; margin-top:20px;">
+  <h3>GSM Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- HR Checklist -->
+<div id="hrChecklist" style="display:none; margin-top:20px;">
+  <h3>HR Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- ISM Checklist -->
+<div id="ismChecklist" style="display:none; margin-top:20px;">
+  <h3>Internet Sales Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Loaner Agent Checklist -->
+<div id="loanerAgentChecklist" style="display:none; margin-top:20px;">
+  <h3>Loaner Agent Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Lot Attendant Checklist -->
+<div id="lotAttendantChecklist" style="display:none; margin-top:20px;">
+  <h3>Lot Attendant Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Marketing Checklist -->
+<div id="marketingChecklist" style="display:none; margin-top:20px;">
+  <h3>Marketing Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- MIS Hardware Technician Checklist -->
+<div id="misHardwareTechnicianChecklist" style="display:none; margin-top:20px;">
+  <h3>MIS Hardware Technician Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- MIS Help Desk Call Center Checklist -->
+<div id="misHelpDeskChecklist" style="display:none; margin-top:20px;">
+  <h3>MIS Help Desk Call Center Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Office Manager Checklist -->
+<div id="officeManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Office Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Parts Advisor Checklist -->
+<div id="partsAdvisorChecklist" style="display:none; margin-top:20px;">
+  <h3>Parts Advisor Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Parts Inventory/STK Clerk Checklist -->
+<div id="partsInventoryChecklist" style="display:none; margin-top:20px;">
+  <h3>Parts Inventory/STK Clerk Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Parts Manager Checklist -->
+<div id="partsManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Parts Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Payroll Admin Checklist -->
+<div id="payrollAdminChecklist" style="display:none; margin-top:20px;">
+  <h3>Payroll Admin Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Receptionist Checklist -->
+<div id="receptionistChecklist" style="display:none; margin-top:20px;">
+  <h3>Receptionist Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Sales Associate Checklist -->
+<div id="salesAssociateChecklist" style="display:none; margin-top:20px;">
+  <h3>Sales Associate Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Sales Inventory Checklist -->
+<div id="salesInventoryChecklist" style="display:none; margin-top:20px;">
+  <h3>Sales Inventory Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Sales Manager Checklist -->
+<div id="salesManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Sales Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Service Advisor Checklist -->
+<div id="serviceAdvisorChecklist" style="display:none; margin-top:20px;">
+  <h3>Service Advisor Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Service Dispatcher Checklist -->
+<div id="serviceDispatcherChecklist" style="display:none; margin-top:20px;">
+  <h3>Service Dispatcher Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Service Manager Checklist -->
+<div id="serviceManagerChecklist" style="display:none; margin-top:20px;">
+  <h3>Service Manager Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Service Reception Checklist -->
+<div id="serviceReceptionChecklist" style="display:none; margin-top:20px;">
+  <h3>Service Reception Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Technician Checklist -->
+<div id="technicianChecklist" style="display:none; margin-top:20px;">
+  <h3>Technician Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Title Clerk Checklist -->
+<div id="titleClerkChecklist" style="display:none; margin-top:20px;">
+  <h3>Title Clerk Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+<!-- Warranty Admin Checklist -->
+<div id="warrantyAdminChecklist" style="display:none; margin-top:20px;">
+  <h3>Warranty Admin Checklist</h3>
+  <ul>
+    <li><input type="checkbox"> Placeholder Item 1</li>
+    <li><input type="checkbox"> Placeholder Item 2</li>
+    <li><input type="checkbox"> Placeholder Item 3</li>
+  </ul>
+</div>
+
+
+    <div class="output-container">
+      <div id="result" class="result"></div>
+      <div id="role-access" class="role-access"></div>
+    </div>
+<!-- Button to copy credentials, hidden initially -->
+<button type="button" id="copyCredentialsBtn" onclick="copyCredentials()" style="display:none;">Copy Credentials</button>
+<button type="button" id="refreshBtn" onclick="refreshPage()" style="background:#ff6b6b;">Refresh Page</button>
+  </div>
+  <script>
+    const roleAccessData = {
+      "Asst Service/Lane Manager": { positions: ["Select Service Advisor (default)", "Remote User"] },
+      "BDC/Special Finance": { positions: ["Desk Manager", "BDC Agent (ILM Specialist – check box)"], view: "ALL" },
+      "F&I Manager": { positions: ["Desk Manager (default)", "F&I Manager", "Remote User"], view: "My Departments" },
+      "General Manager": { positions: ["General Manager (Default)", "Desk Manager", "Appraiser", "Remote User"], view: "ALL" },
+      "General Sales Manager": { positions: ["Desk Manager (Default)", "General Sales Manager", "Remote User", "Appraiser"], view: "ALL" },
+      "Internet Sales Manager": { departments: ["Heritage ISM’s (Heritage only)", "Internet Sales (Heritage only)", "Sales"], positions: ["Desk Manager (Default)", "Internet Sales Manager", "Remote User", "Appraiser"], view: "ALL" },
+      "Marketing": { positions: ["Administrator"], view: "ALL" },
+      "MIS Hardware Technician": { positions: ["SysAdmin"], view: "ALL" },
+      "MIS Help Desk Call Center": { positions: ["SysAdmin"], view: "ALL" },
+      "Receptionist": { positions: ["Receptionist", "Greeter"], notes: "Doesn't get Remote access", view: "ALL" },
+      "Sales Associate": { positions: [ "Select Sales Person (default)", "Remote User" ], view: "My Customers" },
+      "Sales Manager": { positions: ["Desk Manager (default)", "Remote User", "Appraiser"], view: "ALL" },
+      "Service Advisor": { positions: ["Select Service Advisor (default)", "Remote User"], view: "My Customers" },
+      "Service Manager": { positions: ["Select Service Manager (default)", "Remote User"], view: "My Departments" },
+};
+
+const roleAccessRen = {
+  "AP Clerk": { reynoldsGroup: "APCLERK", branches: "ALL BRANCHES FOR THAT STORE" },
+  "AR Clerk": { reynoldsGroup: "ARCLERK", branches: "ALL BRANCHES FOR THAT STORE" },
+  "Asst Parts Manager": { reynoldsGroup: "ASSTPARTSMGR", branches: "SERVICE & PARTS" },
+  "Asst Service/Lane Manager": { reynoldsGroup: "ASSTSVCMGR", branches: "SERVICE & PARTS" },
+  "BDC/Special Finance": { reynoldsGroup: "SPCFINANCE", branches: "SALES" },
+  "Body Shop Estimator": { reynoldsGroup: "ESTIMATOR", branches: "SERVICE & PARTS" },
+  "Body Shop Manager": { reynoldsGroup: "BODYSHOPMGR", branches: "SERVICE & PARTS" },
+  "Body Shop Technician": { reynoldsGroup: "TECHS", branches: "SERVICE & PARTS" },
+  "Cashier/Service Clerical/File Clerk": { reynoldsGroup: "CASHIER", branches: "SERVICE & PARTS" },
+  "Controller": { reynoldsGroup: "CONTROLLER", branches: "ALL IN STORE 1 OR 2" },
+  "Customer Relations Manager": { reynoldsGroup: "CUSTRELMGR", branches: "SERVICE & PARTS" },
+  "Deal Admin": { reynoldsGroup: "DEALADMIN", branches: "ALL BRANCHES FOR THAT STORE" },
+  "Deal Processor": { reynoldsGroup: "DEALPROCESS", branches: "ALL BRANCHES FOR THAT STORE" },
+  "F&I Manager": { reynoldsGroup: "FINANCE", branches: "SALES / FINANCE / SERVICE" },
+  "General Manager": { reynoldsGroup: "GM & VMSTRANSFER", branches: "SALES FOR EVERY BRANCH / FINANCE / SERVICE" },
+  "General Sales Manager": { reynoldsGroup: "SALESMGR & VMSTRANSFER", branches: "SALES FOR EVERY BRANCH / FINANCE" },
+  "Internet Sales Manager": { reynoldsGroup: "SALESMGR & VMSTRANSFER", branches: "SALES FOR EVERY BRANCH / FINANCE" },
+  "Loaner Agent": { reynoldsGroup: "CASHIER", branches: "SERVICE & PARTS" },
+  "Marketing (ANY POSITION)": { reynoldsGroup: "MARKETING", branches: "ALL BRANCHES FOR THAT STORE" },
+  "MIS Hardware Technician": { reynoldsGroup: "MISTECHS", branches: "ALL BRANCHES FOR STORE 1 and 2" },
+  "MIS Help Desk Call Center": { reynoldsGroup: "PWDRESET", branches: "ALL BRANCHES FOR STORE 1 and 2" },
+  "Office Manager": { reynoldsGroup: "OFFICEMGR", branches: "ALL" },
+  "Parts Advisor": { reynoldsGroup: "PARTSADVSR", branches: "SERVICE & PARTS" },
+  "Parts Inventory/ STK Clerk": { reynoldsGroup: "PARTSTKCLRK", branches: "SERVICE & PARTS" },
+  "Parts Manager": { reynoldsGroup: "PARTSMNGR", branches: "SERVICE & PARTS" },
+  "Payroll Admin": { reynoldsGroup: "PAYROLL", branches: "ALL BRANCHES FOR THAT STORE" },
+  "Sales Inventory": { reynoldsGroup: "SALESINVT", branches: "SALES & SERVICE" },
+  "Sales Manager": { reynoldsGroup: "SALESMGR & VMSTRANSFER", branches: "SALES FOR EVERY BRANCH"},
+  "Service Advisor": { reynoldsGroup: "ADVISOR", branches: "SERVICE & PARTS" },
+  "Service Dispatcher": { reynoldsGroup: "DISPATCH", branches: "SERVICE & PARTS" },
+  "Service Manager": { reynoldsGroup: "SERVICEMGR", branches: "SERVICE & PARTS" },
+  "Service Reception": { reynoldsGroup: "SVCRECEPTION", branches: "SERVICE & PARTS" },
+  "Technician": { reynoldsGroup: "TECHS", branches: "SERVICE & PARTS" },
+  "Title Clerk": { reynoldsGroup: "TITLECLERK", branches: "ALL" },
+  "Warranty Admin": { reynoldsGroup: "WARRANTYADM", branches: "SERVICE & PARTS" }
+};
+
+// Mapping roles to their Role labels for Cenpos roles. Making this is taking uhh
+const roleLabels = {
+  "AP Clerk": "Accounting",
+  "AR Clerk": "Accounting",
+  "Asst Parts Manager": "Cashier",
+  "Asst Service/Lane Manager": "Cashier",
+  "BDC/Special Finance": "",
+  "Body Shop Estimator": "Cashier",
+  "Body Shop Manager": "Svc Manager",
+  "Body Shop Technician": "",
+  "Cashier/Service Clerical/File Clerk": "Cashier",
+  "Controller": "",
+  "Customer Relations Manager": "Cashier",
+  "Deal Admin": "",
+  "Deal Processor": "",
+  "Detail DX Driver": "",
+  "F&I Manager": "Cashier",
+  "GM": "",
+  "GSM": "",
+  "HR": "",
+  "ISM": "",
+  "Loaner Agent": "Cashier",
+  "Lot Attendant": "",
+  "Marketing (ANY POSITION)": "",
+  "MIS Hardware Technician": "VT Admin",
+  "MIS Help Desk Call Center": "Password Reset",
+  "Office Manager": "",
+  "Parts Advisor": "Cashier",
+  "Parts Inventory/ STK Clerk": "",
+  "Parts Manager": "Svc Manager",
+  "Payroll Admin": "",
+  "Receptionist": "",
+  "Sales Associate": "",
+  "Sales Inventory": "",
+  "Sales Manager": "",
+  "Service Advisor": "Cashier",
+  "Service Dispatcher": "",
+  "Service Manager": "Svc Manager",
+  "Service Reception": "Cashier",
+  "Technician": "",
+  "Title Clerk": "",
+  "Warranty Admin": "Svc Manager"
+};
+    const storeData = {
+      "TCC/Accounting Heritage-01/Acct01": { groups: ["ASK Manager", "TOCP-MyDocs-Group"], cenpos: "" },
+      "Silver Spring/Accounting Herb Gordon-02/Acct01": { groups: ["ASK MANAGER", "SS-MyDocs-Group"], cenpos: "" },
+      "Annapolis/Mercedes-02/05": { groups: ["ANMB-MyDocs-Group"], cenpos: "12721476" },
+      "Bel Air/Honda-01/05": { groups: ["BAHO-MyDocs", "BAHOAcctShare"], cenpos: "12726169" },
+      "Bel Air/Mazda-01/06": { groups: ["BAMA-MyDocs", "CAMSVAcctShare"], cenpos: "12723347" },
+      "Catonsville/Subaru-01/11": { groups: ["CASU-MyDocs", "CAMSVAcctShare"], cenpos: "12723723" },
+      "Catonsville/Volkswagen-01/08": { groups: ["CAVW-MyDocs", "CAMSVAcctShare"], cenpos: "12723723" },
+      "Catonsville/Mazda-01/02": { groups: ["CAMA-MyDocs", "CAMSVAcctShare"], cenpos: "12723723" },
+      "Catonsville/Toyota Collison Center-01/10": { groups: ["CATO-MyDocs", "CATOAcctShare"], cenpos: "12723722" },
+      "Catonsville/Toyota-01/09": { groups: ["CATO-MyDocs", "CAMSVAcctShare"], cenpos: "12723706" },
+      "Catonsville/BMW-02/09": { groups: ["CABM-MyDocs", "CABMWAcctShare"], cenpos: "12723726" },
+      "Fort Washington/BMW-02/11": { groups: ["FWBM-MyDocs", "FWBMWAcctShare"], cenpos: "400005885" },
+      "Fort Washington/Mercedes Benz-02/13": { groups: ["FWMB-MyDocs", "FWMBAcctShare"], cenpos: "N/A" },
+      "Harrisburg/ChryslerDodgeJeep-01/22": { groups: ["HBCH-MyDocs-Group", "HBCDJRAcctShare"], cenpos: "400003221" },
+      "Harrisburg/Toyota-01/23": { groups: ["HBCH-MyDocs-Group", "HBTOAcctShare"], cenpos: "400003220" },
+      "Parkville/ChryslerDodgeJeep-01/15": { groups: ["HRCH-MyDocs", "HRCHAcctShare"], cenpos: "12723311" },
+      "Parkville/Honda-01/14": { groups: ["HRCH-MyDocs", "HRHOAcctShare"], cenpos: "12723317" },
+      "Parkville/Volkswagen-01/15": { groups: ["HRCH-MyDocs", "HRVWAcctShare"], cenpos: "12723318" },
+      "Owings Mills/HyundaiGenesis-01/18": { groups: ["OMDO-MyDocs", "OMDOAcctShare"], cenpos: "N/A" },
+      "Owings Mills/ChryslerDodgeJeep-01/03": { groups: ["OMCH-MyDocs", "OMCHAcctShare"], cenpos: "12723707" },
+      "Owings Mills/Imports-01/04": { groups: ["OMIM-MyDocs", "OMIMAcctShare"], cenpos: "12723708" },
+      "Owings Mills/Toyota-01/07": { groups: ["OMTO-MyDocs", "OMTOAcctShare"], cenpos: "12723702" },
+      "Owings Mills/Mercedes-02/10": { groups: ["OMMB-MyDocs", "OMMBAcctShare"], cenpos: "12723704" },
+      "Silver Spring/Audi-2/06": { groups: ["SS-MyDocs-Group"], cenpos: "12723083" },
+      "Silver Spring/BMW-02/08": { groups: ["SS-MyDocs-Group"], cenpos: "12723086" },
+      "Silver Spring/Ineos-02/14": { groups: ["SS-MyDocs-Group"], cenpos: "N/A" },
+      "Silver Spring/Mercedes Benz-02/04": { groups: ["SS-MyDocs-Group"], cenpos: "12721238" },
+      "Silver Spring/MileOne Body Shop Express-02/07": { groups: ["SS-MyDocs-Group"], cenpos: "12723168" },
+      "Silver Spring/Porsche-2/12": { groups: ["SS-MyDocs-Group"], cenpos: "12723083" },
+      "Silver Spring/Subaru-02/02": { groups: ["SS-MyDocs-Group"], cenpos: "12723088" },
+      "Silver Spring/Volvo-02/01": { groups: ["SS-MyDocs-Group"], cenpos: "12723087" },
+      "Towson/Hyundai-01/17": { groups: ["TOHY-MyDocs", "TOHYAcctShare"], cenpos: "12723332" },
+      "Towson/Mazda-01/12": { groups: ["TOMA-MyDocs", "TOMAAcctShare"], cenpos: "12723326" },
+      "Westminster/Honda-01/16": { groups: ["WEHO-MyDocs", "WEHOAcctShare"], cenpos: "12723316" },
+      "Wilmington/Lexus-01/20": { groups: ["WILE-MyDocs", "WILEAcctShare"], cenpos: "N/A" }
+    };
+
+    function goHome() {
+      window.location.href = "HomeNewTerm.html";
+    }
+// --- Add this new dataset ---
+const reynoldsData = {
+  "TCC/Accounting Heritage-01/Acct01": "00",
+  "Silver Spring/Accounting Herb Gordon-02/Acct01": "00",
+  "Annapolis/Mercedes-02/05": "99",
+  "Bel Air/Honda-01/05": "5",
+  "Bel Air/Mazda-01/06": "6",
+  "Catonsville/Subaru-01/11": "35",
+  "Catonsville/Volkswagen-01/08": "35",
+  "Catonsville/Mazda-01/02": "35",
+  "Catonsville/Toyota Collison Center-01/10": "33",
+  "Catonsville/Toyota-01/09": "33",
+  "Catonsville/BMW-02/09": "29",
+  "Fort Washington/BMW-02/11": "211",
+  "Fort Washington/Mercedes Benz-02/13": "213",
+  "Harrisburg/ChryslerDodgeJeep-01/22": "23",
+  "Harrisburg/Toyota-01/23": "23",
+  "Parkville/ChryslerDodgeJeep-01/15": "15",
+  "Parkville/Honda-01/14": "14",
+  "Parkville/Volkswagen-01/15": "15",
+  "Owings Mills/HyundaiGenesis-01/18": "18",
+  "Owings Mills/ChryslerDodgeJeep-01/03": "3",
+  "Owings Mills/Imports-01/04": "4",
+  "Owings Mills/Toyota-01/07": "37",
+  "Owings Mills/Mercedes-02/10": "38",
+  "Silver Spring/Audi-2/06": "22",
+  "Silver Spring/BMW-02/08": "19",
+  "Silver Spring/Ineos-02/14": "214",
+  "Silver Spring/Mercedes Benz-02/04": "11",
+  "Silver Spring/MileOne Body Shop Express-02/07": "9",
+  "Silver Spring/Porsche-2/12": "22",
+  "Silver Spring/Subaru-02/02": "10",
+  "Silver Spring/Volvo-02/01": "8",
+  "Towson/Hyundai-01/17": "17",
+  "Towson/Mazda-01/12": "12",
+  "Westminster/Honda-01/16": "16",
+  "Wilmington/Lexus-01/20": "120"
+};
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const ssn = document.getElementById("ssn").value.trim();
+  const dmsId = document.getElementById("dmsId").value.trim();
+  const store = document.getElementById("store").value;
+  const role = document.getElementById("role").value;
+
+  const nameParts = fullName.split(" ");
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts[nameParts.length - 1] || "";
+
+  // Generate email & password
+  const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@mileone.com`;
+  const firstTwo = firstName.slice(0, 2).toLowerCase();
+  const ssnLast4 = ssn.slice(-4);
+  const lastTwo = lastName.slice(-2).toLowerCase();
+  const password = `${firstTwo}${ssnLast4}${lastTwo}`;
+
+  // --- Reynolds Credentials ---
+  let reynoldsUsername = "N/A";
+  let reynoldsPassword = "Single Sign on";
+  if (typeof reynoldsData !== "undefined" && reynoldsData[store]) {
+    const prefix = reynoldsData[store];
+    const firstInitial = firstName.slice(0,1).toUpperCase();
+    const lastFour = lastName.slice(0,4).toUpperCase();
+    reynoldsUsername = `${prefix}${firstInitial}${lastFour}`;
+  }
+
+
+  // Format store location
+  let locationDisplay = store;
+  if (store.includes("/")) {
+    let storeParts = store.split("/");
+    let areaName = storeParts[1].split("-")[0];
+    locationDisplay = `${areaName} ${storeParts[0]}`;
+  }
+
+  // --- Left Side: Credentials ---
+  let credentialOutput = `--- General Information ---\n`;
+  credentialOutput += `New Hire's Name: ${fullName}\n`;
+  credentialOutput += `DMS ID: ${dmsId}\n`;
+  credentialOutput += `Location: ${locationDisplay}\n`;
+  credentialOutput += `Job Profile: ${role}\n\n`;
+
+  credentialOutput += `--- Computer Login ---\n`;
+  credentialOutput += `Computer Username: ${firstName.toLowerCase()}.${lastName.toLowerCase()}\n`;
+  credentialOutput += `Computer Password: Welcome1\n\n`;
+
+const Manageremail = ["General Manager", "Sales Manager", "Service Manager", "Parts Manager", "F&I Manager", "General Sales Manager", "Body Shop Manager", "Asst Service/Lane Manager", "Internet Sales Manager", "Marketing", "Office Manager", "Hardware Technician", "MIS Help Desk Call Center"];
+  credentialOutput += `--- Email Credentials ---\n`;
+  credentialOutput += `Email: ${email}\n`;
+if (Manageremail.includes(role)) {
+    credentialOutput += `Password: Single Sign On\n\n`;
+}
+else {
+  credentialOutput += `Email Password: ${password}\n\n`;
+}
+
+
+eLeadPos = [
+  "Asst Service/Lane Manager",
+  "BDC/Special Finance",
+  "F&I Manager",
+  "General Manager",
+  "General Sales Manager",
+  "Internet Sales Manager",
+  "Marketing",
+  "MIS Hardware Technician",
+  "MIS Help Desk Call Center",
+  "Receptionist",
+  "Sales Associate",
+  "Sales Manager",
+  "Service Advisor",
+  "Service Manager"
+];
+if (eLeadPos.includes(role)) {
+  credentialOutput += `--- eLead Credentials ---\n`;
+  credentialOutput += `Email: ${email}\n`;
+  credentialOutput += `Password: Single Sign On\n\n`;
+}
+
+const IgniteRoles = [
+  "AP Clerk",
+  "AR Clerk",
+  "Asst Parts Manager",
+  "Asst Service/Lane Manager",
+  "BDC/Special Finance",
+  "Body Shop Estimator",
+  "Body Shop Manager",
+  "Body Shop Technician",
+  "Cashier/Service Clerical/File Clerk",
+  "Controller",
+  "Customer Relations Manager",
+  "Deal Admin",
+  "Deal Processor",
+  "F&I Manager",
+  "General Manager",
+  "General Sales Manager",
+  "Internet Sales Manager",
+  "Loaner Agent",
+  "Marketing",
+  "MIS Hardware Technician",
+  "MIS Help Desk Call Center",
+  "Office Manager",
+  "Parts Advisor",
+  "Parts Inventory/ STK Clerk",
+  "Parts Manager",
+  "Payroll Admin",
+  "Sales Inventory",
+  "Sales Manager",
+  "Service Advisor",
+  "Service Dispatcher",
+  "Service Manager",
+  "Service Reception",
+  "Technician",
+  "Title Clerk",
+  "Warranty Admin"
+];
+if (IgniteRoles.includes(role)) {
+  credentialOutput += `--- Reynolds Credentials ---\n`;
+  credentialOutput += `Reynolds Username: ${reynoldsUsername}\n`;
+  credentialOutput += `Reynolds Password: ${reynoldsPassword}\n\n`;
+}
+  // --- Cenpos Credentials (only if available) ---
+const Cenposroles = ["Parts Advisor", "Parts Manager", "Service Advisor", "Service Manager", "F&I Manager", "AP Clerk", "AR Clerk"];
+  let cenposID = (typeof storeData !== "undefined" && storeData[store]) ? storeData[store].cenpos : "N/A";
+if (Cenposroles.includes(role)) {
+  if (cenposID && cenposID !== "N/A") {
+    credentialOutput += `--- Cenpos Credentials ---\n`;
+    credentialOutput += `Cenpos Username: ${reynoldsUsername}\n`;
+    credentialOutput += `Cenpos Password: Cenpos2025!@\n`;
+    credentialOutput += `Merchant ID: ${cenposID}\n\n`;
+  }
+}
+
+CallRevuPos = [
+  "Asst Service/Lane Manager",
+  "BDC/Special Finance",
+  "F&I Manager",
+  "General Manager",
+  "General Sales Manager",
+  "Internet Sales Manager",
+  "Marketing",
+  "MIS Hardware Technician",
+  "MIS Help Desk Call Center",
+  "Sales Associate",
+  "Sales Manager",
+  "Service Advisor",
+  "Service Manager"
+];
+if (CallRevuPos.includes(role)) {
+  credentialOutput += `--- CallRevu Credentials ---\n`;
+  credentialOutput += `Username: ${email}\n`;
+  credentialOutput += `Password: Single Sign On\n\n`;
+}
+
+const KaarmaPosC= ["Technician", "Parts Advisor", "Parts Manager"];
+const KaarmaLocC= ["Silver Spring/Audi-2/06",                            
+  "Catonsville/BMW-02/09",                              
+  "Fort Washington/BMW-02/11",                          
+  "Silver Spring/BMW-02/08",                            
+  "Harrisburg/ChryslerDodgeJeep-01/22",                 
+  "Parkville/Honda-01/14",                            
+  "Bel Air/Mazda-01/06",                         
+  "Catonsville/Mazda-01/02",                       
+  "Towson/Mazda-01/12",                               
+  "Catonsville/Subaru-01/11",                          
+  "Silver Spring/Subaru-02/02",                         
+  "Harrisburg/Toyota-01/23",                            
+  "Catonsville/Volkswagen-01/08",                      
+  "Parkville/Volkswagen-01/15",                        
+  "Wilmington/Lexus-01/20",                            
+  "Annapolis/Mercedes-02/05",                           
+  "Fort Washington/Mercedes Benz-02/13",                
+  "Owings Mills/Mercedes-02/10",                        
+"Silver Spring/Ineos-02/14",
+  "Silver Spring/Mercedes Benz-02/04",                                          
+  "Silver Spring/Porsche-2/12",                         
+  "Silver Spring/Volvo-02/01"];
+if (KaarmaLocC.includes(store) && KaarmaPosC.includes(role)) {
+  credentialOutput += `--- myKaarma Credentials ---\n`;
+    credentialOutput += `Username: ${email}\n`;
+    credentialOutput += `Password: Single Sign On\n\n`;
+
+}
+
+  // --- Vauto Credentials (Sales Associate only) ---
+  if (role === "Sales Associate") {
+    credentialOutput += `--- Vauto Credentials ---\n`;
+    credentialOutput += `Username: ${firstName.toLowerCase()}.${lastName.toLowerCase()}\n`;
+    credentialOutput += `Password: Welcome1\n\n`;
+  }
+
+  // Write to result div
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerText = credentialOutput;
+  resultDiv.style.display = "block";
+document.getElementById("copyCredentialsBtn").style.display = "block";
+
+  // --- Right Side: Role Access + AD Groups ---
+let accessOutput = `--- Role-Based Access ---\n`;
+
+if (roleAccessRen[role]) {
+  accessOutput += `\n--- Reynolds Groups ---\n`;
+  accessOutput += `Reynolds Group: ${roleAccessRen[role].reynoldsGroup || "N/A"}\n`;
+  accessOutput += `Branches: ${roleAccessRen[role].branches || "N/A"}\n`;
+}
+
+if (roleAccessData[role]) {
+  accessOutput += `\n--- eLead Access ---\n`;
+  const access = roleAccessData[role];
+  if (access.positions) accessOutput += `Positions:\n- ${access.positions.join("\n- ")}\n`;
+  if (access.departments) accessOutput += `Departments:\n- ${access.departments.join("\n- ")}\n`;
+  if (access.view) accessOutput += `View Access: ${access.view}\n`;
+  if (access.notes) accessOutput += `Notes: ${access.notes}\n`;
+} else {
+  accessOutput += `No specific role-based access rules defined.\n`;
+}
+
+// AD Groups (even if store not found)
+accessOutput += `\n--- AD Groups ---\n`;
+let groups = ["Webex", "MFA-Users"];
+if (storeData[store]) {
+  const myDocsGroups = storeData[store].groups.filter(g => g.toLowerCase().includes("mydocs"));
+  groups.push(...myDocsGroups);
+  if (role.includes("Manager")) {
+    const acctShareGroups = storeData[store].groups.filter(g => g.toLowerCase().includes("acctshare"));
+    groups.push(...acctShareGroups);
+  }
+accessOutput += groups.join("\n") + "\n";
+}
+
+const Cenposroles1 = ["Parts Advisor", "Parts Manager", "Service Advisor", "Service Manager", "F&I Manager", "AP Clerk", "AR Clerk"];
+if (Cenposroles1.includes(role)) {
+  // Cenpos ID if available
+  if (storeData[store].cenpos && storeData[store].cenpos !== "N/A") {
+    accessOutput += `\n--- Cenpos ID ---\n${storeData[store].cenpos}\n`;
+  }
+if (roleLabels[role] && roleLabels[role] !== "") {
+    accessOutput += `Role: ${roleLabels[role]}\n`;
+}
+}
+
+const carFaxRoles = ["Sales Manager", "Sales Associate", "General Manager", "F&I Manager"];
+if (carFaxRoles.includes(role)) {
+  accessOutput += `\n--- Additional Access ---\nUser gets a Car Fax account.\n`;
+}
+
+const commsRole = ("Sales Associate");
+const commsStore = ["Catonsville/Toyota-01/09", "Catonsville/Mazda-01/02"];
+if (commsStore.includes(store) && commsRole.includes(role)) {
+  accessOutput += `\n Create Commissions Ticket\n`;
+}
+
+const DTXRole = ["Sales Manager", "F&I Manager", "Internet Sales Manager", "General Sales Manager"];
+if (DTXRole.includes(role)) {
+  accessOutput += `\n Create DTX/Heat Sheets Ticket\n`;
+}
+
+const KaarmaPos = ["Technician", "Parts Advisor", "Parts Manager"];
+const KaarmaLoc = ["Silver Spring/Audi-2/06",                            
+  "Catonsville/BMW-02/09",                              
+  "Fort Washington/BMW-02/11",                          
+  "Silver Spring/BMW-02/08",                            
+  "Harrisburg/ChryslerDodgeJeep-01/22",                 
+  "Parkville/Honda-01/14",                            
+  "Bel Air/Mazda-01/06",                         
+  "Catonsville/Mazda-01/02",                       
+  "Towson/Mazda-01/12",                               
+  "Catonsville/Subaru-01/11",                          
+  "Silver Spring/Subaru-02/02",                         
+  "Harrisburg/Toyota-01/23",                            
+  "Catonsville/Volkswagen-01/08",                      
+  "Parkville/Volkswagen-01/15",                        
+  "Wilmington/Lexus-01/20",                            
+  "Annapolis/Mercedes-02/05",                           
+  "Fort Washington/Mercedes Benz-02/13",                
+  "Owings Mills/Mercedes-02/10",                        
+"Silver Spring/Ineos-02/14",
+  "Silver Spring/Mercedes Benz-02/04",                                          
+  "Silver Spring/Porsche-2/12",                         
+  "Silver Spring/Volvo-02/01"];
+if (KaarmaLoc.includes(store) && KaarmaPos.includes(role)) {
+  accessOutput += `\n Create myKaarma\n`;
+}
+
+const CloverPos = ["F&I Manager", "Service Manager", "Service Advisor", "Parts Manager", "Parts Manager"];
+const CloverLoc = [
+  "Owings Mills/ChryslerDodgeJeep-01/03",            
+  "Owings Mills/Imports-01/04",                      
+  "Bel Air/Honda-01/05",                             
+  "Bel Air/Mazda-01/06",
+ "Parkville/ChryslerDodgeJeep-01/15",                             
+  "Owings Mills/Toyota-01/07",                       
+  "Catonsville/Toyota-01/09",                        
+  "Catonsville/Mazda-01/02",                         
+  "Catonsville/Volkswagen-01/08",                    
+  "Catonsville/Subaru-01/11",                        
+  "Towson/Mazda-01/12",                              
+  "Parkville/Honda-01/14",                           
+  "Parkville/Volkswagen-01/15",                      
+  "Westminster/Honda-01/16",                         
+  "Towson/Hyundai-01/17",                            
+  "Wilmington/Lexus-01/20",                          
+  "Silver Spring/Subaru-02/02",                      
+  "Silver Spring/Ineos-02/14",                       
+  "Fort Washington/Mercedes Benz-02/13",             
+  "Catonsville/BMW-02/09",
+ "Owings Mills/HyundaiGenesis-01/18"];
+if (CloverLoc.includes(store) && CloverPos.includes(role)) {
+  accessOutput += `\n Create Clover Access Ticket\n`;
+}
+
+const vautoPos = ("Sales Associate");
+if (vautoPos.includes(role)) {
+  accessOutput += `\n Create vAuto Access\n`;
+}
+
+const BlueScreen = ["Service Manager", "Parts Manager"];
+if (BlueScreen.includes(role)) {
+  accessOutput += `\n Create BlueScreen Access Ticket\n`;
+}
+
+  // Write to role access div
+  const roleAccessDiv = document.getElementById("role-access");
+  roleAccessDiv.innerText = accessOutput;
+  roleAccessDiv.style.display = "block";
+}
+
+function copyCredentials() {
+  const resultText = document.getElementById("result").innerText;
+
+  if (!resultText.trim()) {
+    alert("No credentials to copy!");
+    return;
+  }
+
+  navigator.clipboard.writeText(resultText).then(() => {
+    alert("Credentials copied to clipboard!");
+  });
+}
+
+    function showChecklist() {
+  // Hide all checklists first
+  document.getElementById("apClerkChecklist").style.display = "none";
+document.getElementById("arClerkChecklist").style.display = "none";
+document.getElementById("asstPartsManagerChecklist").style.display = "none";
+document.getElementById("asstServiceLaneManagerChecklist").style.display = "none";
+document.getElementById("bdcSpecialFinanceChecklist").style.display = "none";
+document.getElementById("bodyShopEstimatorChecklist").style.display = "none";
+document.getElementById("bodyShopManagerChecklist").style.display = "none";
+document.getElementById("bodyShopTechnicianChecklist").style.display = "none";
+document.getElementById("cashierClerkChecklist").style.display = "none";
+document.getElementById("controllerChecklist").style.display = "none";
+document.getElementById("customerRelationsChecklist").style.display = "none";
+document.getElementById("dealAdminChecklist").style.display = "none";
+document.getElementById("dealProcessorChecklist").style.display = "none";
+document.getElementById("detailChecklist").style.display = "none";
+document.getElementById("dxDriverChecklist").style.display = "none";
+document.getElementById("fiManagerChecklist").style.display = "none";
+document.getElementById("gmChecklist").style.display = "none";
+document.getElementById("gsmChecklist").style.display = "none";
+document.getElementById("hrChecklist").style.display = "none";
+document.getElementById("ismChecklist").style.display = "none";
+document.getElementById("loanerAgentChecklist").style.display = "none";
+document.getElementById("lotAttendantChecklist").style.display = "none";
+document.getElementById("marketingChecklist").style.display = "none";
+document.getElementById("misHardwareTechnicianChecklist").style.display = "none";
+document.getElementById("misHelpDeskChecklist").style.display = "none";
+document.getElementById("officeManagerChecklist").style.display = "none";
+document.getElementById("partsAdvisorChecklist").style.display = "none";
+document.getElementById("partsInventoryChecklist").style.display = "none";
+document.getElementById("partsManagerChecklist").style.display = "none";
+document.getElementById("payrollAdminChecklist").style.display = "none";
+document.getElementById("receptionistChecklist").style.display = "none";
+document.getElementById("salesAssociateChecklist").style.display = "none";
+document.getElementById("salesInventoryChecklist").style.display = "none";
+document.getElementById("salesManagerChecklist").style.display = "none";
+document.getElementById("serviceAdvisorChecklist").style.display = "none";
+document.getElementById("serviceDispatcherChecklist").style.display = "none";
+document.getElementById("serviceManagerChecklist").style.display = "none";
+document.getElementById("serviceReceptionChecklist").style.display = "none";
+document.getElementById("technicianChecklist").style.display = "none";
+document.getElementById("titleClerkChecklist").style.display = "none";
+document.getElementById("warrantyAdminChecklist").style.display = "none";
+
+
+
+
+
+  const role = document.getElementById("role").value;
+  const store = document.getElementById("store").value; 
+
+
+  // Show checklist based on role and store
+
+// Show checklist based on selected role with matching IDs
+if (role === "Sales Manager") {
+    document.getElementById("salesManagerChecklist").style.display = "block";
+}
+else if (role === "General Sales Manager") {
+    document.getElementById("gsmChecklist").style.display = "block";
+}
+else if (role === "General Manager") {
+    document.getElementById("gmChecklist").style.display = "block";
+}
+else if (role === "Lot Attendant") {
+    document.getElementById("lotAttendantChecklist").style.display = "block";
+}
+else if (role === "Receptionist") {
+    document.getElementById("receptionistChecklist").style.display = "block";
+}
+else if (role === "Detail DX Driver") {
+    document.getElementById("dxDriverChecklist").style.display = "block";
+}
+else if (role === "BDC/Special Finance") {
+    document.getElementById("bdcSpecialFinanceChecklist").style.display = "block";
+}
+else if (role === "Sales Associate") {
+    document.getElementById("salesAssociateChecklist").style.display = "block";
+}
+else if (role === "F&I Manager") {
+    document.getElementById("fiManagerChecklist").style.display = "block";
+}
+else if (role === "Service Manager") {
+    document.getElementById("serviceManagerChecklist").style.display = "block";
+}
+else if (role === "Service Advisor") {
+    document.getElementById("serviceAdvisorChecklist").style.display = "block";
+}
+else if (role === "Technician") {
+    document.getElementById("technicianChecklist").style.display = "block";
+}
+
+// Add blocks for remaining roles with placeholder IDs
+else if (role === "AP Clerk") {
+    const checklist = document.getElementById("apClerkChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "AR Clerk") {
+    const checklist = document.getElementById("arClerkChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Asst Parts Manager") {
+    const checklist = document.getElementById("asstPartsManagerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Asst Service/Lane Manager") {
+    const checklist = document.getElementById("asstServiceLaneManagerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Body Shop Estimator") {
+    const checklist = document.getElementById("bodyShopEstimatorChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Body Shop Manager") {
+    const checklist = document.getElementById("bodyShopManagerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Body Shop Technician") {
+    const checklist = document.getElementById("bodyShopTechnicianChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Cashier/Service Clerical/File Clerk") {
+    const checklist = document.getElementById("cashierClerkChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Controller") {
+    const checklist = document.getElementById("controllerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Customer Relations Manager") {
+    const checklist = document.getElementById("customerRelationsChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Deal Admin") {
+    const checklist = document.getElementById("dealAdminChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Deal Processor") {
+    const checklist = document.getElementById("dealProcessorChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Detail") {
+    const checklist = document.getElementById("detailChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "HR") {
+    const checklist = document.getElementById("hrChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Internet Sales Manager") {
+    const checklist = document.getElementById("ismChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Loaner Agent") {
+    const checklist = document.getElementById("loanerAgentChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Marketing") {
+    const checklist = document.getElementById("marketingChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "MIS Hardware Technician") {
+    const checklist = document.getElementById("misHardwareTechnicianChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "MIS Help Desk Call Center") {
+    const checklist = document.getElementById("misHelpDeskChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Office Manager") {
+    const checklist = document.getElementById("officeManagerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Parts Advisor") {
+    const checklist = document.getElementById("partsAdvisorChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Parts Inventory/STK Clerk") {
+    const checklist = document.getElementById("partsInventoryChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Parts Manager") {
+    const checklist = document.getElementById("partsManagerChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Payroll Admin") {
+    const checklist = document.getElementById("payrollAdminChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Sales Inventory") {
+    const checklist = document.getElementById("salesInventoryChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Service Dispatcher") {
+    const checklist = document.getElementById("serviceDispatcherChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Service Reception") {
+    const checklist = document.getElementById("serviceReceptionChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Title Clerk") {
+    const checklist = document.getElementById("titleClerkChecklist");
+    checklist.style.display = "block";
+}
+else if (role === "Warranty Admin") {
+    const checklist = document.getElementById("warrantyAdminChecklist");
+    checklist.style.display = "block";
+}
+
+
+}
+
+
+function refreshPage() {
+  location.reload();
+}
+  </script>
+</body>
+</html>
+
+
+
+
